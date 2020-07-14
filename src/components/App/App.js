@@ -3,6 +3,7 @@ import './App.css';
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
 import Yelp from '../../util/Yelp';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 /* const business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
@@ -47,7 +48,9 @@ class App extends React.Component {
       <div className="App">
         <h1>ravenous</h1>
         <SearchBar searchYelp={this.searchYelp} />
-        <BusinessList businesses={this.state.businesses} /> 
+        <ErrorBoundary>
+          <BusinessList businesses={this.state.businesses} /> 
+        </ErrorBoundary>
       </div>
     );
   }
